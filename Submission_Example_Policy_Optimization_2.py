@@ -124,13 +124,13 @@ optimal_predictive_policy_improvement_75 = np.percentile(optimal_predictive_poli
 # plot the theoretical prediction power and the improvement of MGAPS and optimal predictive policy
 plt.figure()
 plt.rcParams["font.family"] = "Times New Roman"
-plt.axhline(y=theoretical_no_pred_cost - theoretical_opt_cost, linestyle='--', color='r', label="Prediction power (averaged over time)")
-plt.plot(- avg_cost + avg_cost_optimal_no_prediction_policy, label="M-GAPS")
+plt.axhline(y=theoretical_no_pred_cost - theoretical_opt_cost, linestyle='--', color='r', label=r"Prediction power ($P(2)/T$)")
+plt.plot(- avg_cost + avg_cost_optimal_no_prediction_policy, label=r"M-GAPS")
 plt.fill_between(range(sys.MAX_HORIZON), MGAPS_improvement_25, MGAPS_improvement_75, alpha=0.2)
-plt.plot(- avg_cost_optimal_predictive_policy + avg_cost_optimal_no_prediction_policy, label="Optimal predictive policy")
+plt.plot(- avg_cost_optimal_predictive_policy + avg_cost_optimal_no_prediction_policy, label=r"Optimal predictive policy ($\pi^2$)")
 plt.fill_between(range(sys.MAX_HORIZON), optimal_predictive_policy_improvement_25, optimal_predictive_policy_improvement_75, alpha=0.2)
 plt.xlabel("Time step")
-plt.ylabel("Average cost improvement")
+plt.ylabel(r"Average cost improvement against $\bar{\pi}$")
 plt.ylim(-0.5, 2.5)
 plt.legend(loc='lower right')
 plt.savefig("Figures/average_cost_improvement_next_prediction_{}.pdf".format(rho))
