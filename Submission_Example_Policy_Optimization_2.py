@@ -123,7 +123,14 @@ optimal_predictive_policy_improvement_75 = np.percentile(optimal_predictive_poli
 
 # plot the theoretical prediction power and the improvement of MGAPS and optimal predictive policy
 plt.figure()
-plt.rcParams["font.family"] = "Times New Roman"
+#plt.rcParams["font.family"] = "Times New Roman"
+rc_fonts = {
+    "font.family": "serif",
+    "font.size": 16,
+    "text.usetex": True,
+    'text.latex.preamble': r'\usepackage{times}\usepackage{amsfonts}',
+}
+plt.rcParams.update(rc_fonts)
 plt.axhline(y=theoretical_no_pred_cost - theoretical_opt_cost, linestyle='--', color='r', label=r"Prediction power ($P(2)/T$)")
 plt.plot(- avg_cost + avg_cost_optimal_no_prediction_policy, label=r"M-GAPS")
 plt.fill_between(range(sys.MAX_HORIZON), MGAPS_improvement_25, MGAPS_improvement_75, alpha=0.2)
@@ -133,7 +140,7 @@ plt.xlabel("Time step")
 plt.ylabel(r"Average cost improvement against $\bar{\pi}$")
 plt.ylim(-0.5, 2.5)
 plt.legend(loc='lower right')
-plt.savefig("Figures/average_cost_improvement_next_prediction_{}.pdf".format(rho))
+plt.savefig("Figures/average_cost_improvement_next_prediction_{}.pdf".format(rho), bbox_inches='tight')
 
 end_time = time.time()
 # get the processor information
