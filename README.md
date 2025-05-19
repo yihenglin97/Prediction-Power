@@ -7,3 +7,7 @@ Then, run the script
 ```
 ./run_prediction_power_exp.sh
 ```
+Or run
+```
+bash run_prediction_power_exp.sh
+```
