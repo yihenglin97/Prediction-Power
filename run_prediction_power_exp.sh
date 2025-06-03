@@ -1,4 +1,4 @@
-python Submission_Example_Mismatch_1.py
-python Submission_Example_Mismatch_2.py
-python Submission_Example_Policy_Optimization_1.py
-python Submission_Example_Policy_Optimization_2.py
+python Example_Mismatch_1.py
+python Example_Mismatch_2.py
+python Example_Policy_Optimization_1.py
+python Example_Policy_Optimization_2.py
